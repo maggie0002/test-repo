@@ -1,0 +1,21 @@
+name: Test Project
+description: >-
+  Test Project
+joinable: false
+post-provisioning: Test Project
+type: sw.application
+assets:
+  repository:
+    type: blob.asset
+    data:
+      url: "https://github.com/maggie0002/test-repo"
+data:
+  defaultDeviceType: raspberrypi4-64
+  supportedDeviceTypes:
+    - raspberry-pi
+    - raspberry-pi2
+    - raspberrypi3
+    - raspberrypi3-64
+    - raspberrypi4-64
+    - genericx86-64-ext
+
