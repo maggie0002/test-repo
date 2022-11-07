@@ -2,7 +2,7 @@ name: Test Project
 description: >-
   Test Project
 joinable: false
-post-provisioning: Automated
+post-provisioning: Click 'View code' to see the README.
 type: sw.application
 assets:
   repository:
