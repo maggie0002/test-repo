@@ -2,6 +2,8 @@ name: Deploy to BCR
 
 on:
   push:
+    tags:
+      - "*.*.*"
 
 jobs:
   deploy-to-bcr:
@@ -9,25 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Store README.md as a GitHub output variable
-        run: |
-          README_OUTPUT="$(cat README.md)"
-          echo "README_OUTPUT<<EOF" >> $GITHUB_ENV
-          echo "$README_OUTPUT" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
-
-      - name: Update balena.yml with README.md
-        uses: fjogeleit/yaml-update-action@1b05b4490e1fdeea39cb42d2ba7c621c94fd5088
+      - name: Deploy to Balena
+        uses: balena-io-experimental/balena.yml-action@main
         with:
-          valueFile: "balena.yml"
-          propertyPath: '.["post-provisioning"]'
-          value: ${{ env.README_OUTPUT }}
-          commitChange: false
-          updateFile: true     
+          sync_readme: true
+          sync_tag: true
 
       - name: Deploy to Balena
         uses: balena-io/deploy-to-balena-action@master
-        id: build
         with:
           balena_token: ${{ secrets.BALENA_TOKEN }}
           fleet: maggie0002/test-block

@@ -1,5 +1,7 @@
 ![balenaDash](https://raw.githubusercontent.com/balenalabs/balena-dash/master/assets/balenaDash_logo.png)
 
+testtesttest
+
 Try our simple [balenaCloud](https://www.balena.io/cloud) starter project to set up a Raspberry Pi and LCD or monitor to display any webpage or web-based dashboard. We’re calling it balenaDash! Follow along with our guide to get up and running in under 30 minutes.
 
 - [Introduction](#introduction)
@@ -25,7 +27,7 @@ Some examples of what you could use this for include:
 - 24 hour live [animated cat](http://www.nyan.cat/) display
 - [Home automation](https://www.home-assistant.io) dashboard
 
-Previously, balenaDash supported a photo gallery features such as: 
+Previously, balenaDash supported a photo gallery features such as:
 
 - [Instagram](https://instagram.com) photo stream (based on hashtag or user)
 - Live digital photo frame feeding from [Google Photos](https://photos.google.com/) or Apple iCloud accounts
@@ -104,7 +106,7 @@ variable. If nothing is set, balenaDash will display the [browser block](https:/
 
 ### Switching URLs quickly using your web browser
 
-Your balenaDash device is also running a small webserver on port 8080. The web page can be loaded by navigating your browser to the device's local IP address. 
+Your balenaDash device is also running a small webserver on port 8080. The web page can be loaded by navigating your browser to the device's local IP address.
 
 In the 'reported' section you can click 'Refresh' and find out what URL the browser is displaying, whether the GPU is enabled, whether the browser is using kiosk mode, the version of Chromium and the flags being used.
 

@@ -2,7 +2,7 @@ name: Test Project
 description: >-
   Test Project
 joinable: false
-post-provisioning: Test Project
+post-provisioning: Automated
 type: sw.application
 assets:
   repository:
