@@ -12,7 +12,6 @@ jobs:
       - name: Update balena.yml
         uses: balena-io-experimental/balena.yml-action@main
         with:
-          sync_readme: true
           sync_tag: false
 
       - name: Deploy to Balena
