@@ -15,6 +15,18 @@ jobs:
           sync_readme: true
           sync_tag: false
 
+      - name: Check
+        run: cat balena.yml
+
+      - name: Update balena.yml
+        uses: balena-io-experimental/balena.yml-action@main
+        with:
+          sync_readme: true
+          sync_tag: false
+
+      - name: Check2
+        run: cat balena.yml
+
       - name: Deploy to Balena
         uses: balena-io/deploy-to-balena-action@master
         with:
