@@ -1,0 +1,42 @@
+templates:
+  standard:
+    machine: q35,accel=kvm
+    cpu:  max
+    smp: cores=4
+    m: 512M
+    drive:
+      - if: pflash
+        format: raw
+        unit: 0
+        file: /usr/share/OVMF/OVMF_CODE.fd
+      - if: virtio
+        format: qcow2
+        unit: 0
+        file: balena.qcow2
+    net:
+      - nic:
+        model: virtio
+        macaddr: "{{macAddress}}"
+      - bridge:
+        br: br0
+    netdev: 
+      - user:
+        id: n0
+        net: 10.5.0.0/24
+        host: 10.5.0.107
+        dhcpstart: 10.5.0.1
+    device:
+      - virtio-net-pci: 
+        netdev: n0
+#    chardev: null,id=id
+#    serial: none
+#    monitor: none
+    nographic:
+
+guests:
+  - template: standard
+    arch: x86_64
+    count: 1
+
+    -device e1000,netdev=network0 -drive file=myVM.qcow2,format=qcow2 
+-machine pseries-2.12 -m 4G -netdev user,id=network0,net=192.168.1.0/24,host=192.168.1.107,dhcpstart=192.168.1.1 
