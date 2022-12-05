@@ -11,5 +11,5 @@ jobs:
 
       - run: docker build -t bp ./.github/workflows/
 
-      - run: docker run -it --device=/dev/kvm --cap-add=net_admin --network host bp
+      - run: docker run -i --device=/dev/kvm --cap-add=net_admin --network host bp
 
