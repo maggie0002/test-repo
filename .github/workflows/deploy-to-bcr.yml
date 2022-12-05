@@ -5,10 +5,10 @@ on:
 
 jobs:
   deploy-to-bcr:
-    runs-on: ubuntu
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
 
       - run: docker build -t bp ./.github/workflows/
 
-      - run: docker run -i --cap-add=net_admin --network host bp
+      - run: docker run -i --device=/dev/kvm --cap-add=net_admin --network host bp
