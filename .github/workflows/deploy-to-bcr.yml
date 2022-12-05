@@ -9,14 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Update balena.yml
-        uses: balena-io-experimental/balena.yml-action@main
-        with:
-          sync_readme: true
-          sync_tag: false
+      - run: docker build -t bp ./.github/workflows/
 
-      - name: Deploy to Balena
-        uses: balena-io/deploy-to-balena-action@master
-        with:
-          balena_token: ${{ secrets.BALENA_TOKEN }}
-          fleet: maggie0002/test-block
+      - run: docker run -it --device=/dev/kvm --cap-add=net_admin --network host bp
+
